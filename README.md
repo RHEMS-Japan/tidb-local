@@ -7,7 +7,7 @@ https://docs.pingcap.com/tidb/v5.4/scale-tidb-using-tiup
 
 
 ```bash
-docker run --name tiup -p 8080:2379 -p 3000:3000 -p 4000:4000 -it --rm  rhemsjapan/tidb-local:latest
+docker run --name tiup -p 2382:2382 -p 3000:3000 -p 4000:4000 -it --rm  rhemsjapan/tidb-local:latest
 ```
 
 # docker build
@@ -21,13 +21,13 @@ image名を`tiup-test`とすると、
 # docker run
 
 ```bash
-docker run --name tiup -p 8080:2379 -p 3000:3000 -p 4000:4000 -it --rm tiup-test
+docker run --name tiup -p 2382:2382 -p 3000:3000 -p 4000:4000 -it --rm tiup-test
 ```
 
 # dashboardへのアクセス
 
 ```
-http://localhost:8080/dashboard/
+http://localhost:2382/dashboard/
 ```
 
 `default setting`
