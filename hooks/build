@@ -1,0 +1,18 @@
+#!/bin/bash
+
+export DOCKER_CLI_EXPERIMENTAL=enabled
+
+_TAG=$(echo $IMAGE_NAME | cut -d ':' -f 2)
+
+echo "---- check env -----"
+echo $DOCKERFILE_PATH
+echo ${_TAG}
+
+docker build -f $DOCKERFILE_PATH -t $IMAGE_NAME . 
+
+if [ ${_TAG} == "main" ]
+then
+    MUTLI_ARC_IMAGE_NAME=$(echo $IMAGE_NAME | sed 's/:main/:latest/g')
+    docker buildx create --use --driver docker-container
+    docker buildx build --platform linux/amd64,linux/arm64 -f ${DOCKERFILE_PATH} -t ${MUTLI_ARC_IMAGE_NAME} . --push
+fi
