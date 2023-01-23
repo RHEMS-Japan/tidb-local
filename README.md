@@ -1,3 +1,15 @@
+[![Docker Automated build](https://badges.rhems-japan.com/api-get-dockerhub-badge.svg?user_id=zCPep23H7YFzCY90rQez&owner=rhemsjapan&namespace=rhemsjapan&name=tidb-local&timedelta=9)](https://hub.docker.com/r/rhemsjapan/tidb-local)
+
+# QUICK START
+
+
+https://docs.pingcap.com/tidb/v5.4/scale-tidb-using-tiup
+
+
+```bash
+docker run --name tiup -p 8080:2379 -p 3000:3000 -p 4000:4000 -it --rm  rhemsjapan/tidb-local:latest
+```
+
 # docker build
 
 image名を`tiup-test`とすると、
@@ -42,12 +54,20 @@ http://localhost:3000/
 
 ```bash
 % mysql --comments --host 127.0.0.1 --port 4000 -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 413
+Server version: 5.7.25-TiDB-v6.5.0 TiDB Server (Apache License 2.0) Community Edition, MySQL 5.7 compatible
 
- (no password)
-```
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
 
-```mysql
-mysql> show databases;
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show  databases;
 +--------------------+
 | Database           |
 +--------------------+
@@ -58,4 +78,6 @@ mysql> show databases;
 | test               |
 +--------------------+
 5 rows in set (0.00 sec)
+
+ (no password)
 ```
